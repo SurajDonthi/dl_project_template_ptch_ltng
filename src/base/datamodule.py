@@ -1,9 +1,9 @@
-import pytorch_lightning as pl
-from pytorch_lightning.utilities import parsing
 import inspect
 import json
-
 from argparse import ArgumentParser
+
+import pytorch_lightning as pl
+from pytorch_lightning.utilities import parsing
 
 
 class BaseDataModule(pl.LightningDataModule):

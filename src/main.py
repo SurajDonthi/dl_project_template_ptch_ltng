@@ -1,12 +1,13 @@
-from argparse import ArgumentParser
 import os
+from argparse import ArgumentParser
+
 from pathlib2 import Path
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks.model_checkpoint import ModelCheckpoint
 from pytorch_lightning.loggers.test_tube import TestTubeLogger
 
-from src.engine import Engine
 from src.data import CustomDataLoader
+from src.engine import Engine
 from src.utils import save_args
 
 

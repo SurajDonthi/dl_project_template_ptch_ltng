@@ -1,7 +1,8 @@
 from argparse import ArgumentParser
-import torch.nn.functional as F
-from base.module_base import BaseModule
 
+import torch.nn.functional as F
+
+from base import BaseModule
 from src.models import Model
 
 LOSSES = {'bce': F.binary_cross_entropy,

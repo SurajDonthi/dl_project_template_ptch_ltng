@@ -1,11 +1,11 @@
 
 import inspect
 import json
-from pytorch_lightning.utilities import parsing
 from argparse import ArgumentParser, Namespace
-from typing import Union, List, Tuple, Any
+from typing import Any, List, Tuple, Union
 
 import pytorch_lightning as pl
+from pytorch_lightning.utilities import parsing
 
 
 class BaseModule(pl.LightningModule):

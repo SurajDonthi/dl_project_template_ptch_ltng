@@ -1,4 +1,4 @@
-__all__ = ['datamodule_base', 'module_base']
+__all__ = ['datamodule', 'module']
 
-from base.datamodule_base import DataModuleBase
-from base.module_base import BaseModule
+from base.datamodule import BaseDataModule
+from base.module import BaseModule

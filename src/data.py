@@ -1,6 +1,6 @@
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader, Dataset
 
-from base.datamodule_base import BaseDataModule
+from base import BaseDataModule
 
 
 class Dataset(Dataset):
