@@ -9,7 +9,9 @@
       "type": "python",
       "request": "launch",
       "program": "${workspaceFolder}/src/main.py",
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "pythonArgs": ["-W", "ignore::UserWarning::0"],
+      "args": []
     }
   ]
 }

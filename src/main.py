@@ -5,22 +5,23 @@ from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks.model_checkpoint import ModelCheckpoint
 from pytorch_lightning.loggers.test_tube import TestTubeLogger
 
-from .engine import Engine
-from .data import CustomDataLoader
-from .utils import save_args
+from src.engine import Engine
+from src.data import CustomDataLoader
+from src.utils import save_args
 
 
 def main():
     tt_logger = TestTubeLogger(save_dir=args.log_path, name="",
                                description=args.description, debug=False,
                                create_git_tag=args.git_tag)
+    tt_logger.experiment
 
     log_dir = Path(tt_logger.save_dir) / f"version_{tt_logger.version}"
 
     checkpoint_dir = log_dir / "checkpoints"
     os.makedirs(checkpoint_dir, exist_ok=True)
     chkpt_callback = ModelCheckpoint(checkpoint_dir,
-                                     #  monitor='val_loss',
+                                     #  monitor='Loss/val_loss',
                                      #  save_last=True,
                                      #  mode='min',
                                      #  save_top_k=1

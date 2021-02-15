@@ -1,7 +1,8 @@
 from argparse import ArgumentParser
-import pytorch_lightning as pl
+import torch.nn.functional as F
+from base.module_base import BaseModule
 
-from .model import Model
+from src.models import Model
 
 LOSSES = {'bce': F.binary_cross_entropy,
           'bce_logits': F.binary_cross_entropy_with_logits,
@@ -10,7 +11,7 @@ LOSSES = {'bce': F.binary_cross_entropy,
           'l1_loss': F.l1_loss}
 
 
-class Engine(Model, pl.LightningModule):
+class Engine(BaseModule):
 
     def __init__(self, learning_rate=0.0001, *args, **kwargs):
         super().__init__()

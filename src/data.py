@@ -1,5 +1,6 @@
-import pytorch_lightning as pl
 from torch.utils.data import Dataset, DataLoader
+
+from base.datamodule_base import BaseDataModule
 
 
 class Dataset(Dataset):
@@ -15,7 +16,7 @@ class Dataset(Dataset):
         return sample
 
 
-class CustomDataLoader(pl.LightningDataModule):
+class CustomDataLoader(BaseDataModule):
 
     def __init__(self, data_dir: str,
                  train_batchsize: int = 32,
