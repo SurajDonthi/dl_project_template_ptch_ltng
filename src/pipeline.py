@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 import torch.nn.functional as F
 
 from base import BaseModule
-from src.models import Model
+from models import Model
 
 LOSSES = {'bce': F.binary_cross_entropy,
           'bce_logits': F.binary_cross_entropy_with_logits,
@@ -12,7 +12,7 @@ LOSSES = {'bce': F.binary_cross_entropy,
           'l1_loss': F.l1_loss}
 
 
-class Engine(BaseModule):
+class Pipeline(BaseModule):
 
     def __init__(self, learning_rate=0.0001, *args, **kwargs):
         super().__init__()
@@ -24,13 +24,11 @@ class Engine(BaseModule):
         parser = ArgumentParser(parents=[parent_parser], add_help=False)
         parser.add_argument('-des', '--description', required=False, type=str)
         parser.add_argument('-lp', '--log_path', type=str,
-                            default='./lightning_logs')
-        parser.add_argument('-lr', '--learning_rate',
-                            type=float, default=0.0001)
-        parser.add_argument('-c', '--criterion', type=str,
-                            choices=LOSSES.keys(),
-                            default='cross_entropy')
-        parser.add_argument()
+                            default='./logs')
+        parser.add_argument('-gt', '--git_tag', type=bool,
+                            default=False, help='Creates a git tag if true')
+        parser.add_argument('--debug', type=bool,
+                            default=False, help='Does not log if debug mode is true')
         return parser
 
     def configure_optimizers(self):
