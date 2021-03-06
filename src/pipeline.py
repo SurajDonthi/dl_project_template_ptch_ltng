@@ -40,7 +40,7 @@ class Pipeline(BaseModule):
     def training_step(self, X):
 
         loss = None
-        self.log(loss, progress_bar=True)
+        self.log(loss, prog_bar=True)
 
     def validation_step(self, X):
 
