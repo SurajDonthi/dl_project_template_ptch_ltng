@@ -8,11 +8,11 @@ from pytorch_lightning.loggers.test_tube import TestTubeLogger
 
 from data import CustomDataLoader
 from pipeline import Pipeline
-# from tuner import args
+# from tuner import args as params
 from utils import save_args
 
 
-def main():
+def main(args):
     tt_logger = TestTubeLogger(save_dir=args.log_path, name="",
                                description=args.description, debug=False,
                                create_git_tag=args.git_tag)
@@ -51,12 +51,13 @@ def main():
 
 if __name__ == "__main__":
 
-    if 'args' not in locals():
-        parser = ArgumentParser()
-        parser = CustomDataLoader.add_argparse_args(parser)
-        parser = Pipeline.add_argparse_args(parser)
-        parser = Pipeline.add_model_specific_args(parser)
-        parser = Trainer.add_argparse_args(parser)
-        args = parser.parse_args()
+    parser = ArgumentParser()
+    parser = CustomDataLoader.add_argparse_args(parser)
+    parser = Pipeline.add_argparse_args(parser)
+    parser = Pipeline.add_model_specific_args(parser)
+    parser = Trainer.add_argparse_args(parser)
+    args = parser.parse_args()
+    if 'params' in locals():
+        args.__dict__.update(params.__dict__)
 
     main(args)
