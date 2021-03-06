@@ -14,13 +14,13 @@ LOSSES = {'bce': F.binary_cross_entropy,
 
 class Pipeline(BaseModule):
 
-    def __init__(self, learning_rate=0.0001, *args, **kwargs):
+    def __init__(self, lr=0.0001, *args, **kwargs):
         super().__init__()
 
         self.save_hyperparameters()
 
     @staticmethod
-    def add_model_specific_args(cls, parent_parser):
+    def add_model_specific_args(parent_parser):
         parser = ArgumentParser(parents=[parent_parser], add_help=False)
         parser.add_argument('-des', '--description', required=False, type=str)
         parser.add_argument('-lp', '--log_path', type=str,
