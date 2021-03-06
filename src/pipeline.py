@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 
 import torch.nn.functional as F
+from pytorch_lightning.utilities import parsing
 
 from base import BaseModule
 from models import Model
@@ -25,9 +26,9 @@ class Pipeline(BaseModule):
         parser.add_argument('-des', '--description', required=False, type=str)
         parser.add_argument('-lp', '--log_path', type=str,
                             default='./logs')
-        parser.add_argument('-gt', '--git_tag', type=bool,
+        parser.add_argument('-gt', '--git_tag', type=parsing.str_to_bool,
                             default=False, help='Creates a git tag if true')
-        parser.add_argument('--debug', type=bool,
+        parser.add_argument('--debug', type=parsing.str_to_bool,
                             default=False, help='Does not log if debug mode is true')
         return parser
 
