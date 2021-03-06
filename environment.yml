@@ -8,10 +8,10 @@ dependencies:
   - pip
   - cudatoolkit=10.2
   - pytorch::pytorch
-  # - pytorch::torchvision
+  - pytorch::torchvision
   - conda-forge::pytorch-lightning
   - tensorboard
-  - pathlib2
+  # - pathlib2
   - seaborn
   - numpy
   - pandas
