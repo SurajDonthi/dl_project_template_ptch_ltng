@@ -1,4 +1,4 @@
-name: PytorchEnv
+name: PytorchLightningEnv
 channels:
   - conda-forge
   - pytorch
