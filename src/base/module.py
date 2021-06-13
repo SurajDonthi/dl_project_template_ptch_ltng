@@ -10,18 +10,6 @@ from pytorch_lightning.utilities import parsing
 
 class BaseModule(pl.LightningModule):
 
-    def generalize_args(self, kwargs, retain_args=True):
-        if (kwargs is None):
-            kwargs = {'generator': {}, 'discriminator': {}}
-        # <= --> Check whether subset
-        if not ({'generator', 'discriminator'} <= kwargs.keys()):
-            if retain_args:
-                kwargs = {**kwargs, 'generator': kwargs,
-                          'discriminator': kwargs}
-            else:
-                kwargs = {'generator': kwargs, 'discriminator': kwargs}
-        return kwargs
-
     @classmethod
     def add_argparse_args(cls, parent_parser: ArgumentParser) -> ArgumentParser:
         r"""Extends existing argparse by default `LightningDataModule` attributes.
