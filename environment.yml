@@ -9,7 +9,7 @@ dependencies:
   - cudatoolkit=10.2
   - pytorch::pytorch
   - pytorch::torchvision
-  - conda-forge::pytorch-lightning
+  - conda-forge::pytorch-lightning=1.2.10
   - tensorboard
   # - pathlib2
   - seaborn
