@@ -18,7 +18,11 @@ dependencies:
   - autopep8
   - flake8
   - jupyter
+  - jedi
+  # Really important for jupyter to work
+  - nb_conda_kernels
+  - ipykernel
   - pip:
       # - pytorch-lightning-bolts
       - test-tube
-prefix: ~/anaconda3/envs/PytorchEnv
+prefix: ~/miniconda3/envs/PytorchEnv
